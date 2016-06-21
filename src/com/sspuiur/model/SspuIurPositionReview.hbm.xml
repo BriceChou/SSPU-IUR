@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 27, 2016 10:45:43 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.sspuiur.model.SspuIurPositionReview" table="sspu_iur_position_review" catalog="sspu_iur">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="prId" type="java.lang.Integer">
+            <column name="pr_id">
+                <comment>&#214;&#176;&#206;&#187;&#202;&#181;&#188;&#249;&#188;&#199;&#194;&#188;ID</comment>
+            </column>
+        </property>
+        <property name="reviewContent" type="string">
+            <column name="review_content" length="600">
+                <comment>&#201;&#243;&#186;&#203;&#183;&#180;&#192;&#161;&#196;&#218;&#200;&#221;</comment>
+            </column>
+        </property>
+        <property name="reviewer" type="string">
+            <column name="reviewer" length="30">
+                <comment>&#183;&#180;&#192;&#161;&#201;&#243;&#186;&#203;&#200;&#203;</comment>
+            </column>
+        </property>
+        <property name="reviewTime" type="timestamp">
+            <column name="review_time" length="19">
+                <comment>&#201;&#243;&#186;&#203;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="status" type="java.lang.Byte">
+            <column name="status">
+                <comment>&#202;&#199;&#183;&#241;&#207;&#212;&#202;&#190;(0&#178;&#187;&#207;&#212;&#202;&#190;1&#207;&#212;&#202;&#190;)</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

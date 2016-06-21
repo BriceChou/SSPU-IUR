@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 27, 2016 10:45:43 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.sspuiur.model.SspuIurPositionSalary" table="sspu_iur_position_salary" catalog="sspu_iur">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="sspuIurPayCheck" class="com.sspuiur.model.SspuIurPayCheck" fetch="select">
+            <column name="pc_id" not-null="true">
+                <comment>&#185;&#164;&#215;&#202;&#181;&#165;ID</comment>
+            </column>
+        </many-to-one>
+        <property name="PId" type="int">
+            <column name="p_id" not-null="true">
+                <comment>&#214;&#176;&#206;&#187;ID</comment>
+            </column>
+        </property>
+        <property name="actualSalary" type="java.lang.Double">
+            <column name="actual_salary" precision="22" scale="0">
+                <comment>&#202;&#181;&#188;&#202;&#183;&#162;&#183;&#197;&#208;&#189;&#215;&#202;&#182;&#238;&#182;&#200;</comment>
+            </column>
+        </property>
+        <property name="totalSalary" type="java.lang.Double">
+            <column name="total_salary" precision="22" scale="0">
+                <comment>&#208;&#189;&#215;&#202;&#215;&#220;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="basicSalary" type="java.lang.Double">
+            <column name="basic_salary" precision="22" scale="0">
+                <comment>&#181;&#215;&#208;&#189;</comment>
+            </column>
+        </property>
+        <property name="feeDeduction" type="java.lang.Double">
+            <column name="fee_deduction" precision="22" scale="0">
+                <comment>&#191;&#219;&#179;&#253;&#181;&#196;&#198;&#228;&#203;&#251;&#183;&#209;&#211;&#195;&#182;&#238;&#182;&#200;</comment>
+            </column>
+        </property>
+        <property name="taxableAmount" type="java.lang.Double">
+            <column name="taxable_amount" precision="22" scale="0">
+                <comment>&#211;&#166;&#189;&#201;&#203;&#176;&#189;&#240;&#182;&#238;&#188;&#176;&#198;&#228;&#203;&#251;&#189;&#240;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="pushMoney" type="java.lang.Double">
+            <column name="push_money" precision="22" scale="0">
+                <comment>&#204;&#225;&#179;&#201;</comment>
+            </column>
+        </property>
+        <property name="welfarePayments" type="java.lang.Double">
+            <column name="welfare_payments" precision="22" scale="0">
+                <comment>&#184;&#163;&#192;&#251;&#178;&#185;&#214;&#250;</comment>
+            </column>
+        </property>
+        <property name="payStatus" type="java.lang.Byte">
+            <column name="pay_status">
+                <comment>&#177;&#237;&#202;&#190;&#208;&#189;&#215;&#202;&#183;&#162;&#183;&#197;&#215;&#180;&#204;&#172;&#163;&#168;0&#206;&#180;&#183;&#162;&#183;&#197;
+                1&#210;&#209;&#183;&#162;&#183;&#197;&#163;&#169;</comment>
+            </column>
+        </property>
+        <set name="sspuIurAssociationSalaries" table="sspu_iur_association_salary" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ps_id" not-null="true">
+                    <comment>&#214;&#176;&#206;&#187;&#208;&#189;&#215;&#202;&#207;&#234;&#207;&#184;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.sspuiur.model.SspuIurAssociationSalary" />
+        </set>
+    </class>
+</hibernate-mapping>

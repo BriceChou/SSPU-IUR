@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 27, 2016 10:45:43 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.sspuiur.model.SspuIurDbTable" table="sspu_iur_db_table" catalog="sspu_iur">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="sspuIurDbCode" class="com.sspuiur.model.SspuIurDbCode" fetch="select">
+            <column name="code_id" not-null="true">
+                <comment>&#202;&#253;&#215;&#214;&#180;&#250;&#194;&#235;&#189;&#226;&#202;&#205;&#177;&#237;ID</comment>
+            </column>
+        </many-to-one>
+        <property name="tableName" type="string">
+            <column name="table_name" length="30">
+                <comment>&#202;&#253;&#190;&#221;&#191;&#226;&#177;&#237;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="tableDescription" type="string">
+            <column name="table_description">
+                <comment>&#202;&#253;&#190;&#221;&#191;&#226;&#177;&#237;&#215;&#247;&#211;&#195;&#215;&#162;&#202;&#205;</comment>
+            </column>
+        </property>
+        <property name="status" type="java.lang.Byte">
+            <column name="status">
+                <comment>&#202;&#253;&#190;&#221;&#191;&#226;&#177;&#237;&#202;&#199;&#183;&#241;&#191;&#201;&#211;&#195;&#163;&#168;0&#178;&#187;&#191;&#201;&#211;&#195;
+                1&#191;&#201;&#211;&#195;&#163;&#169;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

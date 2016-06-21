@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 27, 2016 10:45:43 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.sspuiur.model.SspuIurResearchTeam" table="sspu_iur_research_team" catalog="sspu_iur">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="sspuIurResearch" class="com.sspuiur.model.SspuIurResearch" fetch="select">
+            <column name="r_id" not-null="true">
+                <comment>&#207;&#238;&#196;&#191;ID</comment>
+            </column>
+        </many-to-one>
+        <property name="participantId" type="java.lang.Integer">
+            <column name="participant_id">
+                <comment>&#178;&#206;&#211;&#235;&#213;&#223;ID</comment>
+            </column>
+        </property>
+        <property name="isLeader" type="java.lang.Byte">
+            <column name="is_leader">
+                <comment>&#202;&#199;&#183;&#241;&#214;&#247;&#210;&#170;&#207;&#238;&#196;&#191;&#184;&#186;&#212;&#240;&#213;&#223;(0&#178;&#187;&#202;&#199; 1
+                &#202;&#199;)</comment>
+            </column>
+        </property>
+        <property name="identity" type="java.lang.Byte">
+            <column name="identity">
+                <comment>&#178;&#206;&#188;&#211;&#213;&#223;&#201;&#237;&#183;&#221;(0 &#182;&#188;&#178;&#187;&#202;&#199; 1&#209;&#167;&#208;&#163;
+                2&#198;&#243;&#210;&#181;&#181;&#200; )</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

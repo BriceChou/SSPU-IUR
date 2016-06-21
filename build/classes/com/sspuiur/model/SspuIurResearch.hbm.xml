@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 27, 2016 10:45:43 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.sspuiur.model.SspuIurResearch" table="sspu_iur_research" catalog="sspu_iur">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="projectName" type="string">
+            <column name="project_name" length="50">
+                <comment>&#207;&#238;&#196;&#191;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="researchFunds" type="java.lang.Double">
+            <column name="research_funds" precision="22" scale="0">
+                <comment>&#209;&#208;&#190;&#191;&#190;&#173;&#183;&#209;</comment>
+            </column>
+        </property>
+        <property name="startTime" type="date">
+            <column name="start_time" length="10">
+                <comment>&#191;&#170;&#202;&#188;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="endTiem" type="date">
+            <column name="end_tiem" length="10">
+                <comment>&#189;&#225;&#202;&#248;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="projectSummary" type="string">
+            <column name="project_summary" length="600">
+                <comment>&#207;&#238;&#196;&#191;&#188;&#242;&#189;&#233;</comment>
+            </column>
+        </property>
+        <property name="projectObjective" type="string">
+            <column name="project_objective" length="400">
+                <comment>&#207;&#238;&#196;&#191;&#196;&#191;&#177;&#234;</comment>
+            </column>
+        </property>
+        <property name="applyTime" type="timestamp">
+            <column name="apply_time" length="19">
+                <comment>&#201;&#234;&#199;&#235;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="applicantName" type="string">
+            <column name="applicant_name" length="30">
+                <comment>&#201;&#234;&#199;&#235;&#200;&#203;&#208;&#213;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="category" type="string">
+            <column name="category" length="20">
+                <comment>&#207;&#238;&#196;&#191;&#203;&#249;&#202;&#244;&#192;&#224;&#208;&#205;&#183;&#214;&#192;&#224;</comment>
+            </column>
+        </property>
+        <property name="status" type="java.lang.Byte">
+            <column name="status">
+                <comment>&#202;&#199;&#183;&#241;&#212;&#218;&#188;&#174;(0&#178;&#187;&#212;&#218;&#188;&#174;1&#212;&#218;&#188;&#174;)((1))</comment>
+            </column>
+        </property>
+        <set name="sspuIurResearchTeams" table="sspu_iur_research_team" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="r_id" not-null="true">
+                    <comment>&#207;&#238;&#196;&#191;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.sspuiur.model.SspuIurResearchTeam" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 27, 2016 10:45:43 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.sspuiur.model.SspuIurMenu" table="sspu_iur_menu" catalog="sspu_iur">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="sspuIurMenuPath" class="com.sspuiur.model.SspuIurMenuPath" fetch="select">
+            <column name="path_id" not-null="true">
+                <comment>&#178;&#203;&#181;&#165;&#194;&#183;&#190;&#182;ID</comment>
+            </column>
+        </many-to-one>
+        <property name="roleId" type="int">
+            <column name="role_id" not-null="true">
+                <comment>&#211;&#195;&#187;&#167;&#189;&#199;&#201;&#171;&#177;&#224;&#186;&#197;ID</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

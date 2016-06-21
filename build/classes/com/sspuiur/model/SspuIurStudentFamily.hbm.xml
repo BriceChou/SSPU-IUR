@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 27, 2016 10:45:43 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.sspuiur.model.SspuIurStudentFamily" table="sspu_iur_student_family" catalog="sspu_iur">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="SId" type="int">
+            <column name="s_id" not-null="true">
+                <comment>&#182;&#212;&#211;&#166;&#209;&#167;&#201;&#250;&#177;&#237;&#192;&#239;&#195;&#230;&#181;&#196;id &#178;&#187;&#202;&#199;
+                &#209;&#167;&#201;&#250;&#177;&#237;&#192;&#239;&#181;&#196;Student_id</comment>
+            </column>
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="30">
+                <comment>&#188;&#210;&#205;&#165;&#179;&#201;&#212;&#177;&#208;&#213;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="sex" type="java.lang.Byte">
+            <column name="sex">
+                <comment>&#209;&#167;&#201;&#250;&#208;&#212;&#177;&#240;(0 &#196;&#208;&#201;&#250; 1&#197;&#174;&#201;&#250;)</comment>
+            </column>
+        </property>
+        <property name="relationship" type="string">
+            <column name="relationship" length="10">
+                <comment>&#188;&#210;&#205;&#165;&#179;&#201;&#212;&#177;&#185;&#216;&#207;&#181;</comment>
+            </column>
+        </property>
+        <property name="workplace" type="string">
+            <column name="workplace" length="60">
+                <comment>&#185;&#164;&#215;&#247;&#181;&#216;&#181;&#227;</comment>
+            </column>
+        </property>
+        <property name="occupation" type="string">
+            <column name="occupation" length="30">
+                <comment>&#188;&#210;&#205;&#165;&#179;&#201;&#212;&#177;&#214;&#176;&#210;&#181;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

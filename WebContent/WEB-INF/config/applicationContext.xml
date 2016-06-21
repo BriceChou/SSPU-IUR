@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+					xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+					xmlns:aop="http://www.springframework.org/schema/aop"
+					xmlns:context="http://www.springframework.org/schema/context"
+					xmlns:tx="http://www.springframework.org/schema/tx"
+	                xsi:schemaLocation="http://www.springframework.org/schema/beans           
+				           http://www.springframework.org/schema/beans/spring-beans.xsd        
+				        http://www.springframework.org/schema/tx    
+				       http://www.springframework.org/schema/tx/spring-tx.xsd    
+				          http://www.springframework.org/schema/context   
+		                  http://www.springframework.org/schema/context/spring-context.xsd     
+                              http://www.springframework.org/schema/aop 
+                              http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+	<!-- import the properties file -->
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
+		<property name="locations">
+			<list>
+				 <!--  define the location in the  classpath -->
+				<value>classpath:SQLdataSource.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- load arguments from properties file-->
+	<bean  id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		 <property name="driverClassName" value="${sqlserver.database.driver}" />
+		<property name="url" value="${sqlserver.database.url}" />
+		<property name="username" value="${sqlserver.database.user}" />
+		<property name="password" value="${sqlserver.database.password}" />
+	</bean>
+	
+ <!-- import the data source to the session factory -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		
+	<!-- 	<property name="configLocation" value="classpath:hibernate.cfg.xml"/>   -->
+
+	  <!-- set the hibernate properties arguments-->  
+        <property name="hibernateProperties">  
+    <!--    hibernate Explanation document URL : http://www.lxway.com/406416222.htm -->
+            <props>  
+					<!--           		SQL方言 
+					你应当总是为你的数据库将hibernate.dialect 属性设置成正确的  org.hibernate.dialect.Dialect 子类 .  如果你指定一种方言, Hibernate 将为上面列出的一些属性使用合理的默认值 ,  为你省去了手工指定它们的功夫 .  
+					Hibernate SQL方言  (hibernate.dialect)  
+					RDBMS 方言  
+					DB2 org.hibernate.dialect.DB2Dialect  
+					DB2 AS/400 org.hibernate.dialect.DB2400Dialect  
+					DB2 OS390 org.hibernate.dialect.DB2390Dialect  
+					PostgreSQL org.hibernate.dialect.PostgreSQLDialect  
+					MySQL org.hibernate.dialect.MySQLDialect  
+					MySQL with InnoDB org.hibernate.dialect.MySQLInnoDBDialect  
+					MySQL with MyISAM org.hibernate.dialect.MySQLMyISAMDialect  
+					Oracle (any version) org.hibernate.dialect.OracleDialect  
+					Oracle 9i/10g org.hibernate.dialect.Oracle9Dialect  
+					Sybase org.hibernate.dialect.SybaseDialect  
+					Sybase Anywhere org.hibernate.dialect.SybaseAnywhereDialect  
+					Microsoft SQL Server org.hibernate.dialect.SQLServerDialect  
+					SAP DB org.hibernate.dialect.SAPDBDialect  
+					Informix org.hibernate.dialect.InformixDialect  
+					HypersonicSQL org.hibernate.dialect.HSQLDialect  
+					Ingres org.hibernate.dialect.IngresDialect  
+					Progress org.hibernate.dialect.ProgressDialect  
+					Mckoi SQL org.hibernate.dialect.MckoiDialect  
+					Interbase org.hibernate.dialect.InterbaseDialect  
+					Pointbase org.hibernate.dialect.PointbaseDialect  
+					FrontBase org.hibernate.dialect.FrontbaseDialect  
+					Firebird org.hibernate.dialect.FirebirdDialect -->
+          		<!--   配置Hibernate方言，可以让Hibernate使用某些特定的数据库平台的特性 -->
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop> 
+               
+                <!-- 将执行得到SQL语句都输出到控制台，便于程序员观察SQL的执行  -->
+                <prop key="hibernate.show_sql">true</prop>  
+				
+				<!-- hibernate.hbm2ddl.auto=none，表示不会根据hibernate配置对数据库自动执行任何操作。其他的属性值如下：
+				create:表示sessionFactory启动的时候先drop掉表，再create，数据库的表数据会丢失。
+				create-drop:也表示创建，只不过在sessionFactory关闭前执行一下drop。
+				update:sessionFactory启动的时候会去检查schema是否一致，如果不一致会做scheme更新，是最常用的属性。
+				根据 hibernate持久化类生成表,即使表结构改变了,表中的行仍然存在,不会删除以前的行hibernate持久化类生成表,
+				即使表结构改变了,表中的行仍然存在,不会删除以前的行
+				validate:启动时验证现有数据库表schema与你配置的hibernate是否一致，如果不一致就抛出异常，并不做更新 -->
+                <prop key="hibernate.hbm2ddl.auto">update</prop>  
+                
+                <!-- JDBC执行批量更新语句的大小 清除缓存（定期清除缓存，减小压力 -->  
+                <prop key="hibernate.jdbc.batch_size">20</prop>  
+                
+                <!-- 在log和console中打印出更漂亮的SQL -->
+                <prop key="hibernate.format_sql">false</prop>  
+             	
+             	 <!--   hibernate将收集有助于性能调节的统计数据 -->
+                <prop key="hibernate.generate_statistics">true</prop>  
+                
+                <!-- 使用二级缓存和查询缓存，提高性能
+                <prop key="hibernate.cache.use_query_cache">true</prop>
+			    <prop key="hibernate.cache.provider_class">
+			     org.hibernate.cache.EhCacheProvider
+			    </prop> -->
+            </props>  
+        </property>  
+		
+		<!-- add the table configuration form hibernate -->
+		<property name="mappingResources">
+			<list>
+				<value>com/sspuiur/model/SspuIurAssociationSalary.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurCompany.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurCompanyTeacher.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurDbCode.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurDbTable.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurMenu.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurMenuPath.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurPayCheck.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurPosition.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurPositionAttendance.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurPositionRecord.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurPositionReview.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurPositionSalary.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurResearch.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurResearchTeam.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurRole.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurStudent.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurStudentFamily.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurStudentInformation.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurStudentPosition.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurStudentSparetime.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurUniversity.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurUniversityTeacher.hbm.xml</value>
+				<value>com/sspuiur/model/SspuIurUser.hbm.xml</value>
+				</list>
+		</property>
+	</bean>
+	
+   <!-- 采用@Transaction注解方式使用事务 -->  
+       <tx:annotation-driven transaction-manager="txManager"/>  
+
+	<!-- 声明式事务管理器 -->
+	<bean  id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+    <!-- 使用tx标签配置拦截器-->
+	<tx:advice id="baseServiceAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="find*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="remove*" propagation="REQUIRED" />
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+	
+     
+	
+	<aop:config proxy-target-class="true">
+		<aop:advisor advice-ref="baseServiceAdvice"
+			pointcut="execution(* com.sspueris.service..*.*(..))" />
+	</aop:config>
+
+	<!-- 用户管理 -->
+	<bean class="com.sspuiur.dao.user.UserDao" id="UserDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean class="com.sspuiur.service.user.UserService" id="UserService">
+		<property name="dao" ref="UserDao" />
+	</bean>
+	<bean class="com.sspuiur.action.user.UserAction" id="UserAction"
+		scope="prototype">
+		<property name="service" ref="UserService" />
+	</bean>
+
+
+	<!-- 企业信息
+	<bean class="com.sspueris.dao.CompanyDao" id="CompanyDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean class="com.sspueris.service.CompanyService" id="CompanyService">
+		<property name="dao" ref="CompanyDao" />
+	</bean>
+	<bean class="com.sspueris.action.CompanyAction" id="CompanyAction"
+		scope="prototype">
+		<property name="service" ref="CompanyService" />
+	</bean>
+ -->
+	<!-- 学生信息 
+	<bean class="com.sspueris.dao.StudentDao" id="StudentDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean class="com.sspueris.service.StudentService" id="StudentService">
+		<property name="dao" ref="StudentDao" />
+	</bean>
+	<bean class="com.sspueris.action.StudentAction" id="StudentAction"
+		scope="prototype">
+		<property name="service" ref="StudentService" />
+	</bean>
+-->
+
+</beans>

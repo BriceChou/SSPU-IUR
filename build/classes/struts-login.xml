@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+   <!-- package提供了将多个Action组织为一个模块的方式
+        package的名字必须是唯一的 package可以扩展 当一个package扩展自
+        另一个package时该package会在本身配置的基础上加入扩展的package
+        的配置 父package必须在子package前配置 
+        name：package名称
+        extends:继承的父package名称
+        abstract:设置package的属性为抽象的 抽象的package不能定义action 值true:false
+        namespace:定义package命名空间 该命名空间影响到url的地址，
+        例如此命名空间为/test那么访问是的地址为http://localhost:8080/struts2/test/XX.action
+     -->
+
+	<package name="login" extends="struts-default" namespace="/">
+		<!-- name 是網頁調用的方法 method 是com.sspueris.action.LoginUserAction中方法 -->
+		
+		<action name="register" class="UserAction" method="register">
+				<result name="success" type="redirect">/login.jsp</result>
+		</action>
+		
+			<action name="checkUser" class="UserAction" method="checkUser">
+				<result name="success" type="redirect">/jsp/index.jsp</result>
+				<result name="input" type="redirect">/login.jsp</result>
+		</action>
+	
+	</package>
+
+</struts>

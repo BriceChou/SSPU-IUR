@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_association_salary"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_company"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_company_teacher"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_db_code"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_db_table"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_menu"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_menu_path"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_pay_check"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_position"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_position_attendance"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_position_record"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_position_review"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_position_salary"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_research"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_research_team"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_role"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_student"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_student_family"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_student_information"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_student_position"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_student_sparetime"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_university"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_university_teacher"/>
+  <table-filter match-catalog="sspu_iur" match-name="sspu_iur_user"/>
+</hibernate-reverse-engineering>

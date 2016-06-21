@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="student" extends="struts-default" namespace="/">
+		<!-- name 是網頁調用的方法 method 是com.sspueris.action.LoginUserAction中方法 -->
+
+		<action name="studentInfo" class="StudentAction" method="studentInfo">
+			<result name="success">/WEB-INF/StudentInfo.jsp</result>
+		</action>
+
+	</package>
+
+</struts>

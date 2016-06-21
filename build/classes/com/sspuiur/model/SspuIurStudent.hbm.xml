@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 27, 2016 10:45:43 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.sspuiur.model.SspuIurStudent" table="sspu_iur_student" catalog="sspu_iur">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="UId" type="java.lang.Integer">
+            <column name="u_id">
+                <comment>&#209;&#167;&#208;&#163;ID</comment>
+            </column>
+        </property>
+        <property name="studentId" type="string">
+            <column name="student_id" length="20">
+                <comment>&#209;&#167;&#201;&#250;&#209;&#167;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="30">
+                <comment>&#209;&#167;&#201;&#250;&#208;&#213;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="sex" type="java.lang.Byte">
+            <column name="sex">
+                <comment>&#209;&#167;&#201;&#250;&#208;&#212;&#177;&#240;(0 &#196;&#208;&#201;&#250; 1&#197;&#174;&#201;&#250;)</comment>
+            </column>
+        </property>
+        <property name="phoneNumber1" type="string">
+            <column name="phone_number1" length="20">
+                <comment>&#202;&#214;&#187;&#250;&#186;&#197;&#194;&#235;1</comment>
+            </column>
+        </property>
+        <property name="phoneNumber2" type="string">
+            <column name="phone_number2" length="20">
+                <comment>&#202;&#214;&#187;&#250;&#186;&#197;&#194;&#235;2</comment>
+            </column>
+        </property>
+        <property name="qq" type="string">
+            <column name="qq" length="20">
+                <comment>QQ&#186;&#197;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="mail" type="string">
+            <column name="mail" length="30">
+                <comment>&#209;&#167;&#201;&#250;&#211;&#202;&#207;&#228;</comment>
+            </column>
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="60">
+                <comment>&#209;&#167;&#201;&#250;&#205;&#168;&#209;&#182;&#181;&#216;&#214;&#183;</comment>
+            </column>
+        </property>
+        <property name="entranceTime" type="date">
+            <column name="entrance_time" length="10">
+                <comment>&#200;&#235;&#209;&#167;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="graduationTime" type="date">
+            <column name="graduation_time" length="10">
+                <comment>&#177;&#207;&#210;&#181;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="birthday" type="date">
+            <column name="birthday" length="10">
+                <comment>&#209;&#167;&#201;&#250;&#179;&#246;&#201;&#250;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="status" type="java.lang.Byte">
+            <column name="status">
+                <comment>&#202;&#199;&#183;&#241;&#212;&#218;&#188;&#174;(0&#178;&#187;&#212;&#218;&#188;&#174;1&#212;&#218;&#188;&#174;)</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

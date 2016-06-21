@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 27, 2016 10:45:43 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.sspuiur.model.SspuIurPosition" table="sspu_iur_position" catalog="sspu_iur">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="CId" type="int">
+            <column name="c_id" not-null="true">
+                <comment>&#185;&#171;&#203;&#190;ID</comment>
+            </column>
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="30">
+                <comment>&#214;&#176;&#206;&#187;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="amount" type="string">
+            <column name="amount" length="10">
+                <comment>&#214;&#176;&#206;&#187;&#213;&#208;&#198;&#184;&#202;&#253;&#193;&#191;</comment>
+            </column>
+        </property>
+        <property name="workHours" type="string">
+            <column name="work_hours" length="10">
+                <comment>&#185;&#164;&#215;&#247;&#202;&#177;&#188;&#228;&#179;&#164;&#182;&#200;</comment>
+            </column>
+        </property>
+        <property name="salary" type="string">
+            <column name="salary" length="20">
+                <comment>&#208;&#189;&#215;&#202;&#180;&#253;&#211;&#246;</comment>
+            </column>
+        </property>
+        <property name="applyStart" type="timestamp">
+            <column name="apply_start" length="19">
+                <comment>&#201;&#234;&#199;&#235;&#191;&#170;&#202;&#188;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="applyEnd" type="timestamp">
+            <column name="apply_end" length="19">
+                <comment>&#201;&#234;&#199;&#235;&#189;&#216;&#214;&#185;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="universityGrades" type="java.lang.Byte">
+            <column name="university_grades">
+                <comment>
+                &#212;&#218;&#208;&#163;&#196;&#234;&#188;&#182;&#163;&#172;2&#180;&#243;&#182;&#254;&#161;&#162;3&#180;&#243;&#200;&#253;&#161;&#162;4&#180;&#243;&#203;&#196;&#181;&#200;&#181;&#200;</comment>
+            </column>
+        </property>
+        <property name="category" type="java.lang.Byte">
+            <column name="category">
+                <comment>&#214;&#176;&#206;&#187;&#203;&#249;&#202;&#244;&#183;&#214;&#192;&#224;</comment>
+            </column>
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="10">
+                <comment>&#214;&#176;&#206;&#187;&#192;&#224;&#208;&#205;&#163;&#168;0&#200;&#171;&#214;&#176; 1&#202;&#181;&#207;&#176;&#201;&#250; 2
+                &#188;&#230;&#214;&#176;&#163;&#169;</comment>
+            </column>
+        </property>
+        <property name="degreeRequirement" type="java.lang.Byte">
+            <column name="degree_requirement">
+                <comment>&#209;&#167;&#192;&#250;&#210;&#170;&#199;&#243;</comment>
+            </column>
+        </property>
+        <property name="PTask" type="string">
+            <column name="p_task">
+                <comment>&#185;&#164;&#215;&#247;&#200;&#206;&#206;&#241;</comment>
+            </column>
+        </property>
+        <property name="PRequirement" type="string">
+            <column name="p_requirement">
+                <comment>&#214;&#176;&#206;&#187;&#210;&#170;&#199;&#243;&#203;&#181;&#195;&#247;</comment>
+            </column>
+        </property>
+        <property name="POtherNotes" type="string">
+            <column name="p_other_notes">
+                <comment>&#214;&#176;&#206;&#187;&#198;&#228;&#203;&#251;&#177;&#184;&#215;&#162;</comment>
+            </column>
+        </property>
+        <property name="status" type="java.lang.Byte">
+            <column name="status">
+                <comment>
+                &#214;&#176;&#206;&#187;&#202;&#199;&#183;&#241;&#191;&#201;&#201;&#234;&#199;&#235;&#163;&#168;0&#178;&#187;&#191;&#201;&#211;&#195;1&#191;&#201;&#211;&#195;&#163;&#169;</comment>
+            </column>
+        </property>
+        <set name="sspuIurPositionRecords" table="sspu_iur_position_record" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="p_id" not-null="true">
+                    <comment>&#214;&#176;&#206;&#187;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.sspuiur.model.SspuIurPositionRecord" />
+        </set>
+    </class>
+</hibernate-mapping>

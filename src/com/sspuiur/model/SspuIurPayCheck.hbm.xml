@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 27, 2016 10:45:43 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.sspuiur.model.SspuIurPayCheck" table="sspu_iur_pay_check" catalog="sspu_iur">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="payTime" type="timestamp">
+            <column name="pay_time" length="19">
+                <comment>&#214;&#167;&#184;&#182;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="payor" type="string">
+            <column name="payor" length="30">
+                <comment>&#184;&#182;&#191;&#238;&#200;&#203;</comment>
+            </column>
+        </property>
+        <property name="payee" type="string">
+            <column name="payee" length="30">
+                <comment>&#202;&#213;&#191;&#238;&#200;&#203;</comment>
+            </column>
+        </property>
+        <property name="paymentVoucher" type="string">
+            <column name="payment_voucher" length="60">
+                <comment>&#184;&#182;&#191;&#238;&#198;&#190;&#214;&#164;&#193;&#180;&#189;&#211;(&#205;&#188;&#198;&#172;/&#206;&#196;&#188;&#254;)</comment>
+            </column>
+        </property>
+        <set name="sspuIurPositionSalaries" table="sspu_iur_position_salary" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pc_id" not-null="true">
+                    <comment>&#185;&#164;&#215;&#202;&#181;&#165;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.sspuiur.model.SspuIurPositionSalary" />
+        </set>
+    </class>
+</hibernate-mapping>

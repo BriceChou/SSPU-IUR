@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 27, 2016 10:45:43 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.sspuiur.model.SspuIurUser" table="sspu_iur_user" catalog="sspu_iur">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="roleId" type="int">
+            <column name="role_id" not-null="true">
+                <comment>&#211;&#195;&#187;&#167;&#189;&#199;&#201;&#171;ID</comment>
+            </column>
+        </property>
+        <property name="username" type="string">
+            <column name="username" length="30">
+                <comment>&#211;&#195;&#187;&#167;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="60">
+                <comment>&#188;&#211;&#195;&#220;&#186;&#243;&#181;&#196;&#195;&#220;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="create_time" length="19">
+                <comment>&#211;&#195;&#187;&#167;&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="creator" type="string">
+            <column name="creator" length="30">
+                <comment>&#180;&#180;&#189;&#168;&#213;&#223;</comment>
+            </column>
+        </property>
+        <property name="editTime" type="timestamp">
+            <column name="edit_time" length="19">
+                <comment>&#215;&#238;&#186;&#243;&#210;&#187;&#180;&#206;&#177;&#224;&#188;&#173;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="editor" type="string">
+            <column name="editor" length="30">
+                <comment>&#215;&#238;&#186;&#243;&#210;&#187;&#180;&#206;&#177;&#224;&#188;&#173;&#213;&#223;&#195;&#251;&#215;&#214;</comment>
+            </column>
+        </property>
+        <property name="loginTime" type="timestamp">
+            <column name="login_time" length="19">
+                <comment>&#215;&#238;&#186;&#243;&#210;&#187;&#180;&#206;&#181;&#199;&#194;&#189;&#181;&#196;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="status" type="java.lang.Byte">
+            <column name="status">
+                <comment>&#181;&#177;&#199;&#176;&#211;&#195;&#187;&#167;&#202;&#199;&#183;&#241;&#191;&#201;&#211;&#195;(0&#178;&#187;&#191;&#201;&#211;&#195;
+                1&#191;&#201;&#211;&#195;)</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

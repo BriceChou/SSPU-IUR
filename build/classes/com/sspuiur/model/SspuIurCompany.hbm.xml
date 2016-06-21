@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 27, 2016 10:45:43 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.sspuiur.model.SspuIurCompany" table="sspu_iur_company" catalog="sspu_iur">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="50">
+                <comment>&#198;&#243;&#210;&#181;&#214;&#208;&#206;&#196;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="englishName" type="string">
+            <column name="english_name" length="50">
+                <comment>&#198;&#243;&#210;&#181;&#211;&#162;&#206;&#196;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="telephone" type="string">
+            <column name="telephone" length="20">
+                <comment>&#198;&#243;&#210;&#181;&#181;&#231;&#187;&#176;</comment>
+            </column>
+        </property>
+        <property name="mail" type="string">
+            <column name="mail" length="30">
+                <comment>&#198;&#243;&#210;&#181;&#211;&#202;&#207;&#228;</comment>
+            </column>
+        </property>
+        <property name="website" type="string">
+            <column name="website" length="30">
+                <comment>&#198;&#243;&#210;&#181;&#205;&#248;&#213;&#190;</comment>
+            </column>
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="60">
+                <comment>&#198;&#243;&#210;&#181;&#181;&#216;&#214;&#183;</comment>
+            </column>
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="20">
+                <comment>&#198;&#243;&#210;&#181;&#192;&#224;&#208;&#205;(&#195;&#241;&#211;&#170;/&#185;&#250;&#198;&#243;/&#205;&#226;&#198;&#243;)</comment>
+            </column>
+        </property>
+        <property name="category" type="string">
+            <column name="category" length="20">
+                <comment>
+                &#198;&#243;&#210;&#181;&#203;&#249;&#202;&#244;&#183;&#214;&#192;&#224;&#163;&#168;&#185;&#201;&#183;&#221;&#214;&#198;/&#211;&#208;&#207;&#222;&#212;&#240;&#200;&#206;&#214;&#198;&#163;&#169;</comment>
+            </column>
+        </property>
+        <property name="staffNumber" type="java.lang.Integer">
+            <column name="staff_number">
+                <comment>&#198;&#243;&#210;&#181;&#200;&#203;&#212;&#177;&#202;&#253;&#193;&#191;</comment>
+            </column>
+        </property>
+        <property name="createTime" type="date">
+            <column name="create_time" length="10">
+                <comment>&#198;&#243;&#210;&#181;&#180;&#180;&#176;&#236;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="notes" type="string">
+            <column name="notes" length="200">
+                <comment>&#198;&#243;&#210;&#181;&#177;&#184;&#215;&#162;</comment>
+            </column>
+        </property>
+        <property name="status" type="java.lang.Byte">
+            <column name="status">
+                <comment>&#202;&#199;&#183;&#241;&#212;&#218;&#188;&#174;(0&#178;&#187;&#212;&#218;&#188;&#174;1&#212;&#218;&#188;&#174;)((1))</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

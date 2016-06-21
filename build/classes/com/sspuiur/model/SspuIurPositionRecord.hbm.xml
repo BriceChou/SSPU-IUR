@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 27, 2016 10:45:43 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.sspuiur.model.SspuIurPositionRecord" table="sspu_iur_position_record" catalog="sspu_iur">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="sspuIurPosition" class="com.sspuiur.model.SspuIurPosition" fetch="select">
+            <column name="p_id" not-null="true">
+                <comment>&#214;&#176;&#206;&#187;ID</comment>
+            </column>
+        </many-to-one>
+        <property name="title" type="string">
+            <column name="title" length="30">
+                <comment>&#177;&#234;&#204;&#226;</comment>
+            </column>
+        </property>
+        <property name="content" type="string">
+            <column name="content" length="600">
+                <comment>&#202;&#181;&#188;&#249;&#196;&#218;&#200;&#221;&#183;&#180;&#192;&#161;</comment>
+            </column>
+        </property>
+        <property name="creator" type="string">
+            <column name="creator" length="30">
+                <comment>&#180;&#180;&#189;&#168;&#213;&#223;</comment>
+            </column>
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="create_time" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="editor" type="string">
+            <column name="editor" length="30">
+                <comment>&#177;&#224;&#188;&#173;&#213;&#223;&#208;&#213;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="editTime" type="timestamp">
+            <column name="edit_time" length="19">
+                <comment>&#177;&#224;&#188;&#173;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="reviewer" type="string">
+            <column name="reviewer" length="30">
+                <comment>&#201;&#243;&#186;&#203;&#200;&#203;</comment>
+            </column>
+        </property>
+        <property name="reviewState" type="java.lang.Byte">
+            <column name="review_state">
+                <comment>
+                &#201;&#243;&#186;&#203;&#215;&#180;&#204;&#172;(0&#201;&#243;&#186;&#203;&#178;&#187;&#205;&#168;&#185;&#253;1&#201;&#243;&#186;&#203;&#205;&#168;&#185;&#253;)</comment>
+            </column>
+        </property>
+        <property name="status" type="java.lang.Byte">
+            <column name="status">
+                <comment>
+                &#188;&#199;&#194;&#188;&#215;&#180;&#204;&#172;(0&#177;&#237;&#202;&#190;&#178;&#187;&#213;&#253;&#179;&#163;1&#177;&#237;&#202;&#190;&#213;&#253;&#179;&#163;)</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

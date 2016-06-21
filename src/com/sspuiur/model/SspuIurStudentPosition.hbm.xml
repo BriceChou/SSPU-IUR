@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 27, 2016 10:45:43 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.sspuiur.model.SspuIurStudentPosition" table="sspu_iur_student_position" catalog="sspu_iur">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="SId" type="java.lang.Integer">
+            <column name="s_id">
+                <comment>&#209;&#167;&#201;&#250;ID</comment>
+            </column>
+        </property>
+        <property name="PId" type="java.lang.Integer">
+            <column name="p_id">
+                <comment>&#214;&#176;&#206;&#187;ID</comment>
+            </column>
+        </property>
+        <property name="utId" type="java.lang.Integer">
+            <column name="ut_id">
+                <comment>&#209;&#167;&#208;&#163;&#214;&#184;&#181;&#188;&#192;&#207;&#202;&#166;ID</comment>
+            </column>
+        </property>
+        <property name="ctId" type="java.lang.Integer">
+            <column name="ct_id">
+                <comment>&#185;&#171;&#203;&#190;&#214;&#184;&#181;&#188;&#192;&#207;&#202;&#166;ID</comment>
+            </column>
+        </property>
+        <property name="status" type="java.lang.Byte">
+            <column name="status">
+                <comment>0
+                &#177;&#237;&#202;&#190;&#201;&#234;&#199;&#235;&#184;&#195;&#214;&#176;&#206;&#187;&#178;&#187;&#179;&#201;&#185;&#166;&#163;&#172;1&#177;&#237;&#202;&#190;&#179;&#201;&#185;&#166;&#201;&#234;&#199;&#235;&#184;&#195;&#214;&#176;&#206;&#187;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

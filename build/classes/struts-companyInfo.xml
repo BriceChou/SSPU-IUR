@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="company" extends="struts-default" namespace="/">
+		<!-- name 是網頁調用的方法 method 是com.sspueris.action.LoginUserAction中方法 -->
+
+	<action name="companyJobs" class="CompanyAction" method="companyJobs">
+			<result name="success">/WEB-INF/companyInfo.jsp</result>
+		</action>
+		
+
+		<action name="jobsDetail" class="CompanyAction" method="companyJobsDetail">
+			<result name="success">/WEB-INF/addStudent.jsp</result>
+		</action>
+		
+		<action name="jobsEdit" class="CompanyAction" method="editCompanyJobs">
+			<result name="success">/WEB-INF/addCompany.jsp</result>
+		</action>
+	
+	<action name="jobsDetele" class="CompanyAction" method="deteleCompanyJobs">
+			<result name="success">/WEB-INF/mail.html</result>
+		</action>
+	
+	<action name="jobsManager" class="CompanyAction" method="deteleCompanyJobs">
+			<result name="success">/WEB-INF/Manager.jsp</result>
+		</action>
+		
+			<action name="jobsOthers" class="CompanyAction" method="deteleCompanyJobs">
+			<result name="success">/WEB-INF/others.jsp</result>
+		</action>
+
+	</package>
+
+</struts>
